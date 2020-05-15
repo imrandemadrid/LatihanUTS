@@ -1,13 +1,24 @@
 package com.imran.latihanuts;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+/*
+    Mohamad Imran 10117170 IF5
+    Tanggal pengerjaan Jumat-sabtu 8-9 Mei 2020
+ */
 
 public class Home extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -17,11 +28,12 @@ public class Home extends AppCompatActivity implements BottomNavigationView.OnNa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        loadFragment (new Fragment());
+        loadFragment(new Fragment());
         BottomNavigationView bottomNavigationView = findViewById(R.id.bn_main);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
     }
+
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {
             getSupportFragmentManager().beginTransaction()
@@ -31,10 +43,11 @@ public class Home extends AppCompatActivity implements BottomNavigationView.OnNa
         }
         return false;
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Fragment fragment = null;
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
             case R.id.nav_home:
                 fragment = new HomeFragment();
                 break;
@@ -52,6 +65,10 @@ public class Home extends AppCompatActivity implements BottomNavigationView.OnNa
         }
         return loadFragment(fragment);
     }
+
+
+
+
 
 
 }
